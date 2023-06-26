@@ -1,10 +1,12 @@
 import { Nav,NavLink,Navbar } from "react-bootstrap"
 import Container from "react-bootstrap/Container"
 import { Link } from "react-router-dom"
+import Button from "react-bootstrap/Button"
 
-type Props = {isLoggedin:boolean}
+type Props = {isLoggedin:boolean,
+            logoutUser:()=>void}
 
-export default function Navigation({isLoggedin}: Props) {
+export default function Navigation({isLoggedin,logoutUser}: Props) {
   return (
     <>
     <Navbar bg='info' data-bs-theme='info'>
@@ -17,6 +19,7 @@ export default function Navigation({isLoggedin}: Props) {
                 <NavLink to = '/yourquestions' as={Link}>Your Questions</NavLink>
                 <NavLink to = '/createquestion' as={Link}>Create a Question</NavLink>
                 <NavLink to = '/youraccount' as={Link}>Your Account</NavLink>
+                <Button onClick={(e)=>{e.preventDefault();logoutUser()}}>Log Out</Button>
                 </>:
                 <>
                 <NavLink to = '/userreg' as={Link}>Register</NavLink>

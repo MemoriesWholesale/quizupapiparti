@@ -47,7 +47,7 @@ export default function App({}: Props) {
 
   return (
     <>
-    <Navigation isLoggedin={isLoggedIn}/>
+    <Navigation isLoggedin={isLoggedIn} logoutUser ={logoutUser}/>
     <Container>
       <Routes>
         <Route path = '/' element = {<Homepage/>}></Route>
