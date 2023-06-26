@@ -5,7 +5,7 @@ import QuestionList from "../src/types/questionsobj"
 
 type Props = {}
 
-export default function Questionview({}: Props) {
+export default function Allquestionview({}: Props) {
     const [questions,setQuestions] = useState<QuestionList["questions"]>([])
     useEffect(()=>{
         const fetchData = async () =>{
@@ -19,7 +19,7 @@ export default function Questionview({}: Props) {
   return (
     <>
     <ul>
-      {questions.map((q)=><li key={q.id}>{q.question}</li>)}
+      {questions.map((q)=><li key={q.id}>{q.question}&nbsp;{q.answer}</li>)}
     </ul>
     </>
   )

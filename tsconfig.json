@@ -20,6 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "views/questionview.tsx", "views/userreg.tsx"],
+  "include": ["src", "views/allquestionview.tsx", "views/userreg.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

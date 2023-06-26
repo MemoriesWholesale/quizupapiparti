@@ -1,14 +1,14 @@
-import { useState,useEffect } from "react"
+import { useState } from "react"
 import Button from "react-bootstrap/Button"
 import User from "../src/types/user"
 import { useNavigate } from "react-router-dom"
 import Form from "react-bootstrap/Form"
 import { register } from "../src/lib/apiwrapper"
 
-type Props = {}
+type Props = {loginUser:(user:User)=>void}
 
 
-export default function Userreg({}: Props) {
+export default function Userreg({loginUser}: Props) {
     const [newUser,setNewUser] = useState<User>({email:'',first_name:'',last_name:'',password:''})
     const navigate = useNavigate()
     const handleInputChange = (e:React.ChangeEvent<HTMLInputElement>):void=>{
@@ -21,16 +21,14 @@ export default function Userreg({}: Props) {
       if (resp.error){
         console.log('error')
       }else{
-        console.log(resp.data?.first_name+' '+resp.data?.last_name+' now has a quizup account!')
-        // loginUser(resp.data!)
+        console.log(`${newUser.first_name} ${newUser.last_name} now has a quizup account!`)
+        loginUser(resp.data!)
         navigate('/')
       }
     }
 
 
-    // useEffect(()=>{
-    //     console.log('userreg')
-    // },[])
+
   return (
     <>
     <Form onSubmit={handleFormSubmit}>
