@@ -160,11 +160,11 @@ async function register(newUser:User):Promise<APIResponse<User>>{
     }
 }
 
-async function login(email:string, password:string):Promise<APIResponse<Token>>{
+async function login(email:string, password:string):Promise<APIResponse<User>>{
     let error;
     let data;
     try{
-        const resp: AxiosResponse<Token> = await apiClientBasic(email,password).get(loginendpoint)
+        const resp: AxiosResponse<User> = await apiClientBasic(email,password).get(loginendpoint)
         data = resp.data
     } catch(err){
         if (axios.isAxiosError(err)){

@@ -25,10 +25,9 @@ export default function Login({LoginUser}: Props) {
             console.log('error')
         } else {
             localStorage.setItem('token', resp.data?.token as string)
-            localStorage.setItem('tokenExp', resp.data?.expiration as string)
             const token = localStorage.getItem('token')
             user.token=token       
-            LoginUser(user)
+            LoginUser(resp.data as User)
             navigate('/');
         }
     }

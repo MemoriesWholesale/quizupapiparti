@@ -1,11 +1,13 @@
 import User from '../src/types/user'
 import Button from 'react-bootstrap/Button'
 import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
 
 type Props = {currentUser:User|null}
 
 export default function Youraccount({currentUser}: Props) {
     const navigate = useNavigate()
+    useEffect(()=>console.log(currentUser),[currentUser])
   return (
     <>
         <ul>
